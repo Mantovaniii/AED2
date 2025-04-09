@@ -1,8 +1,8 @@
 /*
 Autor: Murilo Oliva Mantovani
 RA: 834730
-Data:08/04/2025
-Descrição: Implementação do algoritmo de ordenação Insertion Sort.
+Data:09/04/2025
+Descrição: Implementação do algoritmo de ordenação Shell Sort.
 */
 
 #include <iostream>
@@ -10,36 +10,38 @@ Descrição: Implementação do algoritmo de ordenação Insertion Sort.
 
 using namespace std;
 
-// Função para trocar dois elementos
+//Função para trocar dois elementos
 void swap(int &a, int &b) {
     int temp = a;
     a = b;
     b = temp;
 }
 
-// Função para realizar o Insertion Sort
-void insertionSort(vector<int> &arr) {
+//Função para realizar o Shell Sort
+void shellSort(vector<int> &arr) {
     int n = arr.size();
-    for (int i = 1; i < n; ++i) {
-        int j = i;
-        while (j > 0 && arr[j] < arr[j - 1]) {
-            swap(arr[j], arr[j - 1]);
-            --j;
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; ++i) {
+            int j = i;
+            while (j >= gap && arr[j] < arr[j - gap]) {
+                swap(arr[j], arr[j - gap]);
+                j -= gap;
+            }
         }
     }
 }
 
-// Função principal para testar o código
+//Função principal para testar o código
 int main() {
     vector<int> arr = {7, 2, 9, 1, 5, 6};
 
-    cout << "Array antes da ordenaçãoas: ";
+    cout << "Array antes da ordenação: ";
     for (int num : arr) {
         cout << num << " ";
     }
     cout << endl;
 
-    insertionSort(arr);
+    shellSort(arr);
 
     cout << "Array após a ordenação: ";
     for (int num : arr) {
