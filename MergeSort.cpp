@@ -75,5 +75,7 @@ int main() {
     }
     cout << endl;
 
+    system("pause"); //Pausa o sistema para que possa visualizar os resultados
+
     return 0;
 }
