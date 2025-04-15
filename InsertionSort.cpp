@@ -31,9 +31,9 @@ void insertionSort(vector<int> &arr) {
 
 // Função principal para testar o código
 int main() {
-    vector<int> arr = {7, 2, 9, 1, 5, 6};
+    vector<int> arr = {9, 8, 1, 3, 2, 5};
 
-    cout << "Array antes da ordenaçãoas: ";
+    cout << "Array antes da ordenação: ";
     for (int num : arr) {
         cout << num << " ";
     }
